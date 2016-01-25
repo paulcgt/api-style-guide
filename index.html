@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
     <title>Api-style-guide by Haufe-Lexware</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -20,21 +20,107 @@
 
     <section class="main-content">
       <h1>
-<a id="haufe-api-style-guide" class="anchor" href="#haufe-api-style-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Haufe API style guide</h1>
+<a id="haufe-api-style-guide" class="anchor" href="#haufe-api-style-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Haufe API style guide</h1>
 
 <h2>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
 
-<p>Purpose of this style guide is to gather a list of rules, best practices, resources and our way of creating REST APIs in Haufe Group.
-The style guide addresses API Designers, mostly developers and architects, who want to design an API. Intention is to ease the design process by providing helpful rules to create a succesful API that your customers will love.
-Please follow the guidelines but don't follow blindly! You can break the rules with justification. Please inform the CTO Office (mailto:<a href="mailto:_CTOLeads@haufe-lexware.com">_CTOLeads@haufe-lexware.com</a>) in this cases.</p>
+<p>Purpose of this style guide is to gather a list of rules, best practices, resources and our way of creating REST APIs in <strong>Haufe Group</strong>.
+The style guide addresses API Designers, mostly developers and architects, who want to design an API. Intention is to ease the design process by providing helpful rules to create a succesful API that your customers will love.<br>
+The style guide focuses on <strong>REST APIs</strong> cause this is the preferred way to expose APIs to our services.</p>
 
-<p>The style guide focuses on REST APIs cause this is the preferred way to expose APIs to our services.</p>
+<h3>
+<a id="how-to-use-the-guide" class="anchor" href="#how-to-use-the-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use the guide</h3>
+
+<p>The API style guide MUST be used when you create an API, refactor or extend an API.
+Existing APIs might be subject to adapt if there is business value in it.</p>
+
+<p>It is the responsibility of the API designer to apply the API style guide to a specific API and project!</p>
+
+<blockquote>
+<p>Please follow the guidelines, but don't follow blindly!<br>
+  You can break the rules with justification.</p>
+</blockquote>
+
+<p>The style guide is work in progress. We’d love your feedback – whether you agree, disagree, or have some additional practices and tips to add.</p>
+
+<blockquote>
+<p>We encourage you to improve the style guide with modifications and extensions.
+  Inform the CTO Office (mailto:<a href="mailto:_CTOLeads@haufe-lexware.com">_CTOLeads@haufe-lexware.com</a>) in this cases.</p>
+
+<p>Please contribute! </p>
+</blockquote>
+
+<h3>
+<a id="api-design-review-process" class="anchor" href="#api-design-review-process" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API Design Review Process</h3>
+
+<p>We are still at the beginning of our journey to an API driven company.<br>
+There will be pros and cons how to handle and apply the style guide to real projects.
+There are many things to learn and to share with another.</p>
+
+<p>To support the mutual experience exchange we decided to establish an <strong>API Design Review Process</strong>.
+Each new or refactored API MUST run through this process.
+Have a look at <a href="api-design-review-process.md">API Design Review Process</a> for more information.</p>
+
+<h3>
+<a id="content" class="anchor" href="#content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Content</h3>
+
+<h4>
+<a id="most-important-chapters" class="anchor" href="#most-important-chapters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Most important chapters</h4>
+
+<p>Please start with the chapters <a href="api-design-best-practices.md">API design best practices</a>
+and <a href="rest-principles.md">REST principles</a>.
+These chapters describe the intention and mindset how we want to design an API.
+Each section contains links to the chapters with more details.</p>
+
+<p>The covered chapters are:</p>
+
+<ul>
+<li><a href="api-design-best-practices.md">API design best practices</a></li>
+<li><a href="rest-principles.md">REST principles</a></li>
+<li><a href="uri-components.md">URI Components</a></li>
+<li><a href="http-verbs.md">HTTP Verbs</a></li>
+<li>
+<a href="hypermedia-and-rest.md">Hypermedia and REST</a> </li>
+<li><a href="resources.md">Resources</a></li>
+<li><a href="relationships-and-sub-resources.md">Relationships and Sub-Resources</a></li>
+<li>
+<a href="collection-resources.md">Collection Resources</a>
+
+<ul>
+<li>
+<a href="collection-resources.md#resource-naming">Resource naming</a> </li>
+<li><a href="collection-resources.md#get-list-of-resources">Get List of resources</a></li>
+<li><a href="collection-resources.md#read-single-resources">Read Single Resource</a></li>
+<li><a href="collection-resources.md#update-single-ressource">Update Single Ressource</a></li>
+<li><a href="collection-resources.md#update-partial-single-resource">Update Partial Single Resource</a></li>
+<li><a href="collection-resources.md#delete-single-resource">Delete Single Resource</a></li>
+<li><a href="collection-resources.md#create-new-resource">Create New Resource</a></li>
+<li>
+<a href="collection-resources.md#create-new-resource---consumer-supplied-identifier">Create New Resource - Consumer Supplied Identifier</a> </li>
+</ul>
+</li>
+<li><a href="filtering-sorting-field-selection-and-paging.md">Filtering, sorting, field selection and paging</a></li>
+<li><a href="response-format.md">Hypermedia Response Format</a></li>
+<li><a href="type-formatting.md">Type Formatting</a></li>
+<li><a href="message-schema.md">Message Schema and Postels Law</a></li>
+<li><a href="security-and-authentication.md">Security and Authentication</a></li>
+<li><a href="search.md">Search</a></li>
+<li><a href="documentation.md">Documentation</a></li>
+<li><a href="error-handling.md">Error handling</a></li>
+<li><a href="http-status-codes.md">HTTP Status Codes</a></li>
+<li><a href="caching.md">Caching</a></li>
+<li><a href="fq.md">FAQ</a></li>
+<li><a href="further-resources.md">Further Resources</a></li>
+</ul>
+
+<h3>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h3>
 
 <p>For the creation of the style guide I took a lot of input from other authors and even copied whole passages.</p>
 
 <p>I want to gratefully thank these authors and hope that I marked the relevant passages.
-My resources are listed under <a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/further-resources.md">Further Resources</a>. Special thanks goes to</p>
+My resources are listed under <a href="further-resources.md">Further Resources</a>. Special thanks goes to</p>
 
 <p><a href="https://github.com/paypal/api-standards/blob/master/api-style-guide.md">S.Stedman and G. Laforge from Paypal</a><br>
 <a href="https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf">Brian Mulloy</a><br>
@@ -42,53 +128,6 @@ My resources are listed under <a href="https://github.com/Haufe-Lexware/api-styl
 <a href="http://www.vinaysahni.com/">Vinay Sahni</a><br>
 <a href="http://micheltriana.com/2013/09/30/http-verbs-in-a-rest-web-api/">Michel Triana</a><br>
 <a href="http://blog.mwaysolutions.com/author/stefan-jauker/">Stefan Jauker</a></p>
-
-<p>The style guide is work in progress. We’d love your feedback – whether you agree, disagree, or have some additional practices and tips to add.</p>
-
-<pre><code>Please contribute! 
-</code></pre>
-
-<p>The covered chapters are:</p>
-
-        <ul>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/api-design-best-practices.md">API design best practices</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/rest-principles.md">REST principles</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/uri-components.md">URI Components</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/http-verbs.md">HTTP Verbs</a></li>
-            <li>
-                <a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/hypermedia-and-rest.md">Hypermedia and REST</a>
-            </li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/resources.md">Resources</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/relationships-and-sub-resources.md">Relationships and Sub-Resources</a></li>
-            <li>
-                <a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md">Collection Resources</a>
-
-                <ul>
-                    <li>
-                        <a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#resource-naming">Resource naming</a>
-                    </li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#get-list-of-resources">Get List of resources</a></li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#read-single-resources">Read Single Resource</a></li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#update-single-ressource">Update Single Ressource</a></li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#update-partial-single-resource">Update Partial Single Resource</a></li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#delete-single-resource">Delete Single Resource</a></li>
-                    <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#create-new-resource">Create New Resource</a></li>
-                    <li>
-                        <a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/collection-resources.md#create-new-resource---consumer-supplied-identifier">Create New Resource - Consumer Supplied Identifier</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/filtering-sorting-field-selectiion-and-paging.md">Filtering, sorting, field selection and paging</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/response-format.md">Response Format</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/type-formatting.md">Type Formatting</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/security-and-authentication.md">Security and Authentication</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/search.md">Search</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/documentation.md">Documentation</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/error-handling.md">Error handling</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/http-status-codes.md">HTTP Status Codes</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/caching.md">Caching</a></li>
-            <li><a href="https://github.com/Haufe-Lexware/api-style-guide/blob/master/further-resources.md">Further Resources</a></li>
-        </ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Haufe-Lexware/api-style-guide">Api-style-guide</a> is maintained by <a href="https://github.com/Haufe-Lexware">Haufe-Lexware</a>.</span>
@@ -101,4 +140,3 @@ My resources are listed under <a href="https://github.com/Haufe-Lexware/api-styl
   
   </body>
 </html>
-
