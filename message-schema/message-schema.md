@@ -8,9 +8,9 @@ It focuses on the idea of gracefully adapting to communication that doesn't conf
 
 The ability to extend service definitions after the initial release without affecting already deployed clients is key to preserve agility and evolvability of those services. Well designed message schemas play a key part in either enabling or hindering a development team in evolving the service in the future.
 
-Unfortunatel,y message schemas tend to be used for two different purposes at the same time>
+Unfortunately, message schemas tend to be used for two different purposes at the same time:
 
-1. for message-level security and
+1. for message-level security, and
 2. as message-level contract.
 
 Designing a schema for (1) results in strongly typed message structures, while designing it for (2) leads to the use of schema for auto-generated client code.
@@ -21,7 +21,7 @@ The fallacy of Web Services was, that it promised *both* in one convenient packa
 
 If you use a schema to design the message contract, write the schema in such a way, that you enable extensibility and robustness. If you design it for message security, manually curate your client and do not auto-generate it.
 
-API design is one of the places, where a developer needs to be aware of the tradeoffs. We are inclined towards strongly typed schemas either for convenience (hey, I get the right code generated) or for security (an integer should never be a string) or a combination of both. It feels good to have our cake and eat it too. But what we loose is the ability to evolve the service contract after going live.
+API design is one of the places, where a developer needs to be aware of the tradeoffs. We are inclined towards strongly typed schemas either for convenience (hey, I get the right code generated) or for security (an integer should never be a string) or a combination of both. It feels good to have our cake and eat it too. But what we lose is the ability to evolve the service contract after going live.
 
 This is why we should focus on creating a ‘good enough’ schema tailored for robust and evolvable message contracts, and not try to use it for security. Such a schema should have greatly relaxed constraints with deliberate extension points for possible later changes without impacting existing clients.
 
